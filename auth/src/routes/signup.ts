@@ -1,8 +1,7 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import jwt from "jsonwebtoken";
-
-import { validateRequest, BadRequestError } from "@metal_oopa/common";
+import { validateRequest, BadRequestError } from "@devion/common";
 import { User } from "../models/user";
 
 const router = express.Router();
@@ -18,7 +17,7 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { email, password } = req.body;
+    const { email, password, username } = req.body;
 
     const existingUser = await User.findOne({ email });
 
@@ -26,7 +25,7 @@ router.post(
       throw new BadRequestError("Email in use");
     }
 
-    const user = User.build({ email, password });
+    const user = User.build({ email, password, username });
     await user.save();
 
     // Generate JWT
@@ -42,7 +41,6 @@ router.post(
     req.session = {
       jwt: userJwt,
     };
-
     res.status(201).send(user);
   }
 );
