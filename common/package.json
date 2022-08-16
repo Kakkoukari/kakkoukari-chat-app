@@ -1,7 +1,7 @@
 {
   "name": "@kakkoukari/common",
   "version": "1.0.0",
-  "description": "",
+  "description": "This npm module has neccessary custom errors and authentication middlewares defined in it.",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
@@ -13,7 +13,7 @@
     "pub": "git add . && git commit -m 'update' && npm version patch  && npm publish"
   },
   "keywords": [],
-  "author": "",
+  "author": "devion-hackers",
   "license": "ISC",
   "dependencies": {
     "@types/cookie-session": "^2.0.44",
