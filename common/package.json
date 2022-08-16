@@ -1,5 +1,5 @@
 {
-  "name": "@kakkoukari/common",
+  "name": "@devion/common",
   "version": "1.0.0",
   "description": "This npm module has neccessary custom errors and authentication middlewares defined in it.",
   "main": "./build/index.js",
